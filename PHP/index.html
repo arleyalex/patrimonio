@@ -1,32 +1,75 @@
 <html>
     <head>
         <meta http-equiv ="Content-Type" content ="text/html" charset="utf-8">
-        
+        <style>
+			table.dashed {border-style: dashed;}
+			input[type=submit] {
+			padding:5px 15px; 
+			background:#ccc; 
+			border:0 none;
+			cursor:pointer;
+			-webkit-border-radius: 5px;
+			border-radius: 5px; 
+			}
+			input[type=reset] {
+			padding:5px 15px; 
+			background:#ccc; 
+			border:0 none;
+			cursor:pointer;
+			-webkit-border-radius: 5px;
+			border-radius: 5px; 
+			}
+			input[type=text] {
+			width: 100%;
+			padding: 12px 20px;
+			margin: 8px 0;
+			box-sizing: border-box;
+			border: none;
+			background-color: grey;
+			color: white;
+			}
+			input[type=password] {
+			width: 100%;
+			padding: 12px 20px;
+			margin: 8px 0;
+			box-sizing: border-box;
+			border: none;
+			background-color: grey;
+			color: white;
+			}
+		</style>
         <title> SISTEMA PATRIMÔNIAL </title>
     </head>
-    <body>
-    <center>
-        <img src="IMAGENS/logo.jpg"/>
-        <form action="index.php" method="POST">
-            <table border="2">
-				<td>
-					<br>
-					Login: <input type="text" id="text" name="login" value="" size="10">
-					</p>
-					Senha: <input type="password" id="password" name="senha" value="" size="10">
-					</p>
-					<center>
-						<input type="submit" name="btnSubmeter" id="btnSubmeter" value="Enviar"/>
-						<input type="reset" name="btnLimpar" id="btnLimpar" value="Limpar"/>
-						<h6>
-							<font color="red">
-								Esqueceu sua senha? Ligue no Ramal 5555
-							</font>
-						</h6>
-					</center>
-				</td>
-			</table>
-        </form>
-    </center>        
+    <body bgcolor=black>
+	<font face="verdana">
+		<center>
+			<img src="PNG/logo.jpg"/>
+			<br><br>
+			<form action="index.php" method="POST">
+				<table class="dashed">
+					<td>
+					<font color="white">
+						<br>
+						Login: <input type="text" id="text" name="login" value="" size="10">
+						</p>
+						Senha: <input type="password" id="password" name="senha" value="" size="10">
+						</p>
+						<center>
+							<input type="submit" name="btnSubmeter" id="btnSubmeter" value="Enviar"/>
+							<input type="reset" name="btnLimpar" id="btnLimpar" value="Limpar"/>
+					</font>
+							<h6>
+								<u>
+								<font color="red">
+									Esqueceu sua senha? Ligue no Ramal 5555
+								</font>
+								</u>
+							</h6>
+						</center>
+					</td>
+				</table>
+			</form>
+		</center>	
+	</font>
     </body>
 </html>
