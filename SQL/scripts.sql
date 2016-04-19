@@ -8,7 +8,6 @@ CREATE DATABASE db_patrimonio
        CONNECTION LIMIT = -1;
 
 -- CRIAÇÃO DAS TABELAS
-
 CREATE TABLE categoria
 (
   codigo integer NOT NULL DEFAULT nextval('categoria_codigo_seq'::regclass),
