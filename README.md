@@ -1,43 +1,40 @@
+FACULDADE DE TECNOLOGIA SENAC GOI¡S INSTRUMENTO DO PROCESSO DE AVALIA«√O DE APRENDIZAGEM
+                               PROJETO PATRIMONIO - CYGNI
 
-#FACULDADE DE TECNOLOGIA SENAC GOI√ÅS INSTRUMENTO DO PROCESSO DE AVALIA√á√ÉO DE APRENDIZAGEM
-#                               PROJETO PATRIMONIO - CYGNI
 
-
-Grupo: Arley Alex, Rafael Vaz, Andr√© e Jairo
+ Grupo: Arley Alex, Rafael Vaz, AndrÈ e Jairo
 
  - Requisitos
-              O sistema precisa informar a localiza√ß√£o de um bem (Sala e pr√©dio)
-              O sistema precisa emitir a rela√ß√£o dos bens em uma sala
-              O sistema precisa mostrar todos os bens de um pr√©dio organizado por categoria (Impressoras, Computadores, M√≥veis, Ve√≠culos, etc)
-              Uma altera√ß√£o de um bem patrimonial de local para outro, chama-se ‚ÄúMBP ‚Äì Movimenta√ß√£o de bem patrimonial‚Äù. A MBP precisa ser registrada com o data, usu√°rio que fez a movimenta√ß√£o, origem e destino do bem.
+              O sistema precisa informar a localizaÁ„o de um bem (Sala e prÈdio)
+              O sistema precisa emitir a relaÁ„o dos bens em uma sala
+              O sistema precisa mostrar todos os bens de um prÈdio organizado por categoria (Impressoras, Computadores, MÛveis, VeÌculos, etc)
+              Uma alteraÁ„o de um bem patrimonial de local para outro, chama-se ?MBP ? MovimentaÁ„o de bem patrimonial?. A MBP precisa ser registrada com o data, usu·rio que fez a movimentaÁ„o, origem e destino do bem.
               Cadastrar o Bem Patrimonial
-              N√∫mero 
-              Descri√ß√£o
+              N˙mero 
+              DescriÁ„o
               Nota fiscal, data da nota e fornecedor;
               Sala que o bem se encontra 
               Categoria do bem
               Valor do bem
-              Situa√ß√£o (Em uso; Manuten√ß√£o; Inutilizado)
+              SituaÁ„o (Em uso; ManutenÁ„o; Inutilizado)
               Cadastro de departamento
               Sigla do departamento
               Nome do departamento
-              Nome do respons√°vel pelo departamento
+              Nome do respons·vel pelo departamento
               Sala que o departamento ocupa
-              Cadastro de Pr√©dios
+              Cadastro de PrÈdios
               Nome
-              Endere√ßo do pr√©dio
+              EndereÁo do prÈdio
               Cadastro de salas
-              N√∫mero da sala
-              Pr√©dio
-              Espa√ßo (comprimento e largura)
+              N˙mero da sala
+              PrÈdio
+              EspaÁo (comprimento e largura)
 
 
-            √â necess√°rio controlar o acesso ao sistema por meio de usu√°rio e senha. Existem dois n√≠veis de usu√°rios: funcion√°rio e gerente.
+            … necess·rio controlar o acesso ao sistema por meio de usu·rio e senha. Existem dois nÌveis de usu·rios: funcion·rio e gerente.
             
             
-Funcion√°rio: cadastro (exceto o cadastro de usu√°rios)
+Funcion·rio: cadastro (exceto o cadastro de usu·rios)
 Gerente: acesso completo ao sistema
 
-              Todos os ‚Äúrelat√≥rios‚Äù devem ser emitidos em HTML
-
-
+            Todos os ?relatÛrios? devem ser emitidos em HTML
