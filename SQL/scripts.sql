@@ -9,61 +9,40 @@ CREATE DATABASE db_patrimonio
 
 -- CRIAÇÃO DAS TABELAS
 
-CREATE TABLE public.categoria
+CREATE TABLE categoria
 (
   codigo integer NOT NULL DEFAULT nextval('categoria_codigo_seq'::regclass),
   nome character varying(30) NOT NULL,
   descricao character varying(80) NOT NULL,
   CONSTRAINT categoria_pkey PRIMARY KEY (codigo)
-)
-WITH (
-  OIDS=FALSE
 );
-ALTER TABLE public.categoria
-  OWNER TO postgres;
-  
-  CREATE TABLE public.departamento
+
+  CREATE TABLE departamento
 (
   sigla character(5) NOT NULL,
   nome character varying(30) NOT NULL,
   responsavel character varying(50) NOT NULL,
   CONSTRAINT departamento_pkey PRIMARY KEY (sigla)
-)
-WITH (
-  OIDS=FALSE
 );
-ALTER TABLE public.departamento
-  OWNER TO postgres;
 
- CREATE TABLE public.predio
+ CREATE TABLE predio
 (
   codigo integer NOT NULL DEFAULT nextval('predio_codigo_seq'::regclass),
   nome character varying(50) NOT NULL,
   endereco character varying(100) NOT NULL,
   CONSTRAINT predio_pkey PRIMARY KEY (codigo)
-)
-WITH (
-  OIDS=FALSE
 );
-ALTER TABLE public.predio
-  OWNER TO postgres;
 
-
-CREATE TABLE public.usuario
+CREATE TABLE usuario
 (
   login character varying(20) NOT NULL,
   nome character varying(50) NOT NULL,
   senha character varying(60) NOT NULL,
   nivel character(1) NOT NULL,
   CONSTRAINT usuario_pkey PRIMARY KEY (login)
-)
-WITH (
-  OIDS=FALSE
 );
-ALTER TABLE public.usuario
-  OWNER TO postgres;
-  
-  CREATE TABLE public.sala
+
+  CREATE TABLE sala
 (
   numero integer NOT NULL DEFAULT nextval('sala_numero_seq'::regclass),
   comprimento numeric(5,2) NOT NULL,
@@ -77,14 +56,9 @@ ALTER TABLE public.usuario
   CONSTRAINT sala_sigla_depto_fkey FOREIGN KEY (sigla_depto)
       REFERENCES public.departamento (sigla) MATCH SIMPLE
       ON UPDATE NO ACTION ON DELETE NO ACTION
-)
-WITH (
-  OIDS=FALSE
 );
-ALTER TABLE public.sala
-  OWNER TO postgres;
 
-CREATE TABLE public."bemPatrimonial"
+CREATE TABLE "bemPatrimonial"
 (
   numero integer NOT NULL DEFAULT nextval('"bemPatrimonial_numero_seq"'::regclass),
   descricao character varying(80) NOT NULL,
@@ -102,15 +76,9 @@ CREATE TABLE public."bemPatrimonial"
   CONSTRAINT "bemPatrimonial_numsala_fkey" FOREIGN KEY (numsala)
       REFERENCES public.sala (numero) MATCH SIMPLE
       ON UPDATE NO ACTION ON DELETE NO ACTION
-)
-WITH (
-  OIDS=FALSE
 );
-ALTER TABLE public."bemPatrimonial"
-  OWNER TO postgres;
 
-
-  CREATE TABLE public.mbp
+  CREATE TABLE mbp
 (
   numero integer NOT NULL DEFAULT nextval('mbp_numero_seq'::regclass),
   data date NOT NULL,
@@ -128,9 +96,4 @@ ALTER TABLE public."bemPatrimonial"
   CONSTRAINT "mbp_numSalaDestino_fkey" FOREIGN KEY ("numSalaDestino")
       REFERENCES public.sala (numero) MATCH SIMPLE
       ON UPDATE NO ACTION ON DELETE NO ACTION
-)
-WITH (
-  OIDS=FALSE
 );
-ALTER TABLE public.mbp
-  OWNER TO postgres;
