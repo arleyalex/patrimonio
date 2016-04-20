@@ -7,8 +7,6 @@ CREATE DATABASE db_patrimonio
        LC_CTYPE = 'Portuguese_Brazil.1252'
        CONNECTION LIMIT = -1;
 
---CRIANÇÃO DAS TABELAS
-
 CREATE TABLE categoria(
 	codigo SERIAL,
 	nome VARCHAR(30) NOT NULL,
@@ -34,7 +32,8 @@ CREATE TABLE sala (
 	largura NUMERIC(5,2) NOT NULL,
 	codPredio INTEGER REFERENCES predio(codigo),
 	siglaDepto CHAR(5) NOT NULL REFERENCES departamento(sigla),
-	CONSTRAINT sala_pkey PRIMARY KEY (numero)
+	CONSTRAINT sala_pkey PRIMARY KEY (numero),
+	CONSTRAINT departamento_fkey FOREIGN KEY (sigla)
 );
 CREATE TABLE bemPatrimonial (
 	numero SERIAL,
@@ -46,7 +45,9 @@ CREATE TABLE bemPatrimonial (
 	situacao CHAR(1) NOT NULL,
 	codCat INTEGER NOT NULL REFERENCES categoria(codigo),
 	numSala INTEGER NOT NULL REFERENCES sala(numero),
-	CONSTRAINT bemPatrimonial_pkey PRIMARY KEY (numero)
+	CONSTRAINT bemPatrimonial_pkey PRIMARY KEY (numero),
+	CONSTRAINT categoria_fkey FOREIGN KEY (codigo),
+	CONSTRAINT sala_fkey FOREIGN KEY (numero)
 );
 CREATE TABLE usuario (
 	login VARCHAR(20),
