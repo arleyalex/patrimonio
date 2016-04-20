@@ -1,3 +1,11 @@
+<?php
+session_start();
+if (!isset($_SESSION['usuario'])){
+	header('Location: index.html');
+}else{
+	echo "Usuario: " . $_SESSION['nome_usuario'];
+}
+?>
 <html>
     <head>
         <meta http-equiv ="Content-Type" content ="text/html" charset="utf-8">
