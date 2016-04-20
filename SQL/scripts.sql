@@ -7,92 +7,60 @@ CREATE DATABASE db_patrimonio
        LC_CTYPE = 'Portuguese_Brazil.1252'
        CONNECTION LIMIT = -1;
 
--- CRIAÇÃO DAS TABELAS
-CREATE TABLE categoria
-(
-  codigo integer NOT NULL DEFAULT nextval('categoria_codigo_seq'::regclass),
-  nome character varying(30) NOT NULL,
-  descricao character varying(80) NOT NULL,
-  CONSTRAINT categoria_pkey PRIMARY KEY (codigo)
+--CRIANÇÃO DAS TABELAS
+
+CREATE TABLE categoria(
+	codigo SERIAL,
+	nome VARCHAR(30) NOT NULL,
+	descricao VARCHAR(80) NOT NULL,
+	CONSTRAINT categoria_pkey PRIMARY KEY (codigo)
+);
+CREATE TABLE departamento (
+	sigla CHAR(5),
+	nome VARCHAR(30) NOT NULL,
+	responsavel VARCHAR(50) NOT NULL,
+	CONSTRAINT departamento_pkey PRIMARY KEY (sigla)
 );
 
-  CREATE TABLE departamento
-(
-  sigla character(5) NOT NULL,
-  nome character varying(30) NOT NULL,
-  responsavel character varying(50) NOT NULL,
-  CONSTRAINT departamento_pkey PRIMARY KEY (sigla)
+CREATE TABLE predio (
+	codigo SERIAL,
+	nome VARCHAR(50) NOT NULL,
+	endereco VARCHAR(100) NOT NULL,
+	CONSTRAINT predio_pkey PRIMARY KEY (codigo)
 );
-
- CREATE TABLE predio
-(
-  codigo integer NOT NULL DEFAULT nextval('predio_codigo_seq'::regclass),
-  nome character varying(50) NOT NULL,
-  endereco character varying(100) NOT NULL,
-  CONSTRAINT predio_pkey PRIMARY KEY (codigo)
+CREATE TABLE sala (
+	numero SERIAL,
+	comprimento NUMERIC(5,2) NOT NULL,
+	largura NUMERIC(5,2) NOT NULL,
+	codPredio INTEGER REFERENCES predio(codigo),
+	siglaDepto CHAR(5) NOT NULL REFERENCES departamento(sigla),
+	CONSTRAINT sala_pkey PRIMARY KEY (numero)
 );
-
-CREATE TABLE usuario
-(
-  login character varying(20) NOT NULL,
-  nome character varying(50) NOT NULL,
-  senha character varying(60) NOT NULL,
-  nivel character(1) NOT NULL,
-  CONSTRAINT usuario_pkey PRIMARY KEY (login)
+CREATE TABLE bemPatrimonial (
+	numero SERIAL,
+	descricao VARCHAR(80) NOT NULL,
+	nrNotaFiscal INTEGER NOT NULL,
+	dtNotaFiscal DATE NOT NULL,
+	fornecedor VARCHAR(60) NOT NULL,
+	valor NUMERIC(15,2) NOT NULL,
+	situacao CHAR(1) NOT NULL,
+	codCat INTEGER NOT NULL REFERENCES categoria(codigo),
+	numSala INTEGER NOT NULL REFERENCES sala(numero),
+	CONSTRAINT bemPatrimonial_pkey PRIMARY KEY (numero)
 );
-
-  CREATE TABLE sala
-(
-  numero integer NOT NULL DEFAULT nextval('sala_numero_seq'::regclass),
-  comprimento numeric(5,2) NOT NULL,
-  largura numeric(5,2) NOT NULL,
-  cod_predio integer NOT NULL,
-  sigla_depto character(5) NOT NULL,
-  CONSTRAINT sala_pkey PRIMARY KEY (numero),
-  CONSTRAINT sala_cod_predio_fkey FOREIGN KEY (cod_predio)
-      REFERENCES public.predio (codigo) MATCH SIMPLE
-      ON UPDATE NO ACTION ON DELETE NO ACTION,
-  CONSTRAINT sala_sigla_depto_fkey FOREIGN KEY (sigla_depto)
-      REFERENCES public.departamento (sigla) MATCH SIMPLE
-      ON UPDATE NO ACTION ON DELETE NO ACTION
+CREATE TABLE usuario (
+	login VARCHAR(20),
+	nome VARCHAR(50) NOT NULL,
+	senha VARCHAR(60) NOT NULL,
+	nivel CHAR(1) NOT NULL,
+	CONSTRAINT usuario_pkey PRIMARY KEY (login)
 );
-
-CREATE TABLE "bemPatrimonial"
-(
-  numero integer NOT NULL DEFAULT nextval('"bemPatrimonial_numero_seq"'::regclass),
-  descricao character varying(80) NOT NULL,
-  "nrNotaFiscal" integer NOT NULL,
-  "dtNotaFiscal" date NOT NULL,
-  fornecedor character varying(60) NOT NULL,
-  valor numeric(15,2) NOT NULL,
-  situacao character(1) NOT NULL,
-  cod_categoria integer NOT NULL,
-  numsala integer NOT NULL,
-  CONSTRAINT "bemPatrimonial_pkey" PRIMARY KEY (numero),
-  CONSTRAINT "bemPatrimonial_cod_categoria_fkey" FOREIGN KEY (cod_categoria)
-      REFERENCES public.categoria (codigo) MATCH SIMPLE
-      ON UPDATE NO ACTION ON DELETE NO ACTION,
-  CONSTRAINT "bemPatrimonial_numsala_fkey" FOREIGN KEY (numsala)
-      REFERENCES public.sala (numero) MATCH SIMPLE
-      ON UPDATE NO ACTION ON DELETE NO ACTION
-);
-
-  CREATE TABLE mbp
-(
-  numero integer NOT NULL DEFAULT nextval('mbp_numero_seq'::regclass),
-  data date NOT NULL,
-  login character varying(20) NOT NULL,
-  "numBem" integer NOT NULL,
-  "numSalaOrigem" integer NOT NULL,
-  "numSalaDestino" integer NOT NULL,
-  CONSTRAINT mbp_pkey PRIMARY KEY (numero),
-  CONSTRAINT mbp_login_fkey FOREIGN KEY (login)
-      REFERENCES public.usuario (login) MATCH SIMPLE
-      ON UPDATE NO ACTION ON DELETE NO ACTION,
-  CONSTRAINT "mbp_numBem_fkey" FOREIGN KEY ("numBem")
-      REFERENCES public."bemPatrimonial" (numero) MATCH SIMPLE
-      ON UPDATE NO ACTION ON DELETE NO ACTION,
-  CONSTRAINT "mbp_numSalaDestino_fkey" FOREIGN KEY ("numSalaDestino")
-      REFERENCES public.sala (numero) MATCH SIMPLE
-      ON UPDATE NO ACTION ON DELETE NO ACTION
+CREATE TABLE MPB (
+	numero SERIAL,
+	dtAtual DATE NOT NULL,
+	login VARCHAR(20) NOT NULL REFERENCES usuario(login),
+	numBem INTEGER NOT NULL REFERENCES bemPatrimonial(numero),
+	numSalaOrigem INTEGER NOT NULL REFERENCES sala(numero),
+	numSalaDestino INTEGER NOT NULL REFERENCES sala(numero),
+	CONSTRAINT MPB_pkey PRIMARY KEY(numero)
 );
