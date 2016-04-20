@@ -17,7 +17,7 @@ if (!@($conexao = pg_connect("host=localhost dbname=db_patrimonio port=5432 user
 			if (pg_num_rows($result)){ 
 				$linha = pg_fetch_array($result);
 				$_SESSION['usuario'] = $linha['login'];
-				$_SESSION['usuario'] = $linha['nome'];
+				$_SESSION['nome_usuario'] = $linha['nome'];
 				header('Location: menu1.html');
 			}else{
 				echo "<p>Usuário inexistente!!!</p>";
