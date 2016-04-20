@@ -2,7 +2,7 @@
 
 session_start();
 if (!isset($_SESSION['usuario'])){
-	header('Location: index.html');
+	header('Location: menu1.html');
 }else{
 	
 //SISTEMA PATRIMÔNIAL
@@ -18,11 +18,11 @@ if (!@($conexao = pg_connect("host=localhost dbname=db_patrimonio port=5432 user
 				$linha = pg_fetch_array($result);
 				$_SESSION['usuario'] = $linha['login'];
 				$_SESSION['usuario'] = $linha['nome'];
-				header('Location: index.php');
+				header('Location: menu1.html');
 			}else{
 				echo "<p>Usuário inexistente!!!</p>";
 			}
-    $_SESSION['usuario']
+   
      
     
 pg_close($conexao);
