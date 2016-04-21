@@ -1,28 +1,22 @@
-<html>
-    <body>
-        
-   
 <?php
 
+phpinfo();
 session_start();
-if (!isset($_SESSION['usuario'])){
+if (isset($_SESSION['usuario'])){
 	header('Location: menu1.html');
 }else{
 	
-//SISTEMA PATRIMÔNIAL
-if (!@($conexao = pg_connect("host=192.168.40.188 dbname=db_patrimonio port=5432 user=postgres password=123456"))) {
-        echo "Não foi possível estabelecer uma conexão com o banco de dados.";
-        print  'Não foi possível estabelecer uma conexão com o banco de dados22.';
-} else {
-       echo "OK.";
-        print  'OK22.';
+    //SISTEMA PATRIMÔNIAL
+    $conexao = pg_connect("host=192.168.40.188 dbname=db_patrimonio port=5432 user=postgres password=123456") or die("ERRRO");
     
-}
-?>
- </body>
-</html>
+    if (!$conexao) {
+            echo "Não foi possível estabelecer uma conexão com o banco de dados.";
+            print  'Não foi possível estabelecer uma conexão com o banco de dados22.';
+    } else {
+           echo "OK.";
+            print  'OK22.';
 
-/*
+    }
 }
     if (isset($_POST['login']) && isset($_POST['senha'])){
 			$login = $_POST['login'];
@@ -44,5 +38,5 @@ pg_close($conexao);
     //print "Conexão OK!";
 }
 ?>
- /*
+ 
  
