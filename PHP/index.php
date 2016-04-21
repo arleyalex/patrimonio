@@ -1,3 +1,7 @@
+<html>
+    <body>
+        
+   
 <?php
 
 session_start();
@@ -15,7 +19,8 @@ if (!@($conexao = pg_connect("host=192.168.40.188 dbname=db_patrimonio port=5432
     
 }
 ?>
-
+ </body>
+</html>
 
 /*
 }
