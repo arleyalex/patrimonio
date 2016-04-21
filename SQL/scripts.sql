@@ -1,3 +1,5 @@
+DROP DATABASE IF EXISTS db_patrimonio;
+
 -- CRIANDO BANCO DE DADOS
 CREATE DATABASE db_patrimonio
   WITH OWNER = postgres
@@ -6,6 +8,8 @@ CREATE DATABASE db_patrimonio
        LC_COLLATE = 'Portuguese_Brazil.1252'
        LC_CTYPE = 'Portuguese_Brazil.1252'
        CONNECTION LIMIT = -1;
+
+--CRIANÇÃO DAS TABELAS
 
 CREATE TABLE categoria(
 	codigo SERIAL,
@@ -33,7 +37,6 @@ CREATE TABLE sala (
 	codPredio INTEGER REFERENCES predio(codigo),
 	siglaDepto CHAR(5) NOT NULL REFERENCES departamento(sigla),
 	CONSTRAINT sala_pkey PRIMARY KEY (numero),
-	CONSTRAINT departamento_fkey FOREIGN KEY (sigla)
 );
 CREATE TABLE bemPatrimonial (
 	numero SERIAL,
@@ -46,8 +49,6 @@ CREATE TABLE bemPatrimonial (
 	codCat INTEGER NOT NULL REFERENCES categoria(codigo),
 	numSala INTEGER NOT NULL REFERENCES sala(numero),
 	CONSTRAINT bemPatrimonial_pkey PRIMARY KEY (numero),
-	CONSTRAINT categoria_fkey FOREIGN KEY (codigo),
-	CONSTRAINT sala_fkey FOREIGN KEY (numero)
 );
 CREATE TABLE usuario (
 	login VARCHAR(20),
