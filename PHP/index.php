@@ -8,6 +8,7 @@ if (!isset($_SESSION['usuario'])){
 //SISTEMA PATRIMÔNIAL
 if (!@($conexao = pg_connect("host=192.168.40.188 dbname=db_patrimonio port=5432 user=postgres password=123456"))) {
         echo "Não foi possível estabelecer uma conexão com o banco de dados.";
+        print  'Não foi possível estabelecer uma conexão com o banco de dados22.';
 } else {
     if (isset($_POST['login']) && isset($_POST['senha'])){
 			$login = $_POST['login'];
