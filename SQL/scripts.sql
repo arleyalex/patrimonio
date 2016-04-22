@@ -66,3 +66,4 @@ CREATE TABLE MPB (
 	numSalaDestino INTEGER NOT NULL REFERENCES sala(numero),
 	CONSTRAINT MPB_pkey PRIMARY KEY(numero)
 );
+
