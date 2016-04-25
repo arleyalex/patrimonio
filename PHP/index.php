@@ -35,6 +35,6 @@ if (!$CONEXAO) {
         }
     }
 }
-pg_close($CONEXAO);
+    pg_close($CONEXAO);
 ?>
      
