@@ -1,6 +1,3 @@
-<html>
-    <title> SISTEMA PATRIMONIAL </title>
-</html>
 <?php
 session_start();
 if (isset($_SESSION['login'])) {
@@ -37,4 +34,7 @@ if (!$CONEXAO) {
 }
     pg_close($CONEXAO);
 ?>
+    <html>
+    <title> SISTEMA PATRIMONIAL </title>
+    </html>
      
