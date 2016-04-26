@@ -5,15 +5,14 @@ if (isset($_SESSION['login'])) {
 } else {
     $METODO = getenv("REQUEST_METHOD");
     $BANCO = ("host=localhost port=5432 dbname=db_patrimonio port=5432 user=postgres password=123456");
-    $CONEXAO = pg_conect($BANCO);
+    $CONEXAO = pg_connect($BANCO);
     if ($METODO == "GET");
     echo "DADOS INVALIDOS";
     header('Location: index.html');
     exit();
 }
-
 if (!$CONEXAO) {
-    echo 'SEM CONEX√O COM O BANCO DE DADOS';
+    echo 'SEM CONEX√ÉO COM O BANCO DE DADOS';
     exit();
 } else {
     if (isset($_POST['login']) && isset($_POST['senha'])) {
@@ -27,7 +26,7 @@ if (!$CONEXAO) {
             $_SESSION['nome_usuario'] = $LINHA['nome'];
             header('Location: menu1.html');
         } else {
-            echo "<p>USUARIO N√O ACEITO.</p>";
+            echo "<p>USUARIO N√ÉO ACEITO.</p>";
             exit();
         }
     }
@@ -37,4 +36,3 @@ if (!$CONEXAO) {
     <html>
     <title> SISTEMA PATRIMONIAL </title>
     </html>
-     
