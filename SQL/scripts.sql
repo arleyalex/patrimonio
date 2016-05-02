@@ -36,7 +36,7 @@ CREATE TABLE sala (
 	largura NUMERIC(5,2) NOT NULL,
 	codPredio INTEGER REFERENCES predio(codigo),
 	siglaDepto CHAR(5) NOT NULL REFERENCES departamento(sigla),
-	CONSTRAINT sala_pkey PRIMARY KEY (numero),
+	CONSTRAINT sala_pkey PRIMARY KEY (numero)
 );
 CREATE TABLE bemPatrimonial (
 	numero SERIAL,
@@ -48,7 +48,7 @@ CREATE TABLE bemPatrimonial (
 	situacao CHAR(1) NOT NULL,
 	codCat INTEGER NOT NULL REFERENCES categoria(codigo),
 	numSala INTEGER NOT NULL REFERENCES sala(numero),
-	CONSTRAINT bemPatrimonial_pkey PRIMARY KEY (numero),
+	CONSTRAINT bemPatrimonial_pkey PRIMARY KEY (numero)
 );
 CREATE TABLE usuario (
 	login VARCHAR(20),
