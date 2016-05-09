@@ -1,0 +1,65 @@
+﻿<html>
+	<head>
+		<title>Excluir Bem Patrimônial</title>
+		<meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+		<link rel="stylesheet" href="CSS/cadastro.css">
+	<head>
+	<body bgcolor=black>
+		<font face="verdana" color=white>
+		<center>Cadastrar Bem Patrimônial</center>
+		Sistema de Bem Patrimônial
+		<br>
+		IP: IP COMPUTADOR
+		<div align="right">
+			NOME DO USUÁRIO
+			<input type="button" name=sair value="SAIR">
+		</div>
+		<hr>
+		<br><br><br>
+		<form action="cadastro.php" method="POST">
+			<center>
+			<table class="dashed">		
+				<td>
+					<font color=white>
+						<br>
+						Numero Nota Fiscal: <input type="text" nome="nrNotaF">
+						Data Nota Fiscal:
+						<br>
+						<input type="date" nome="dtNota">
+						<p>
+						Fornecedor: <input type="text" nome="fornecedor">
+						<p>
+						<label for="categoria">Categoria: </label>
+							<br>
+							<select name="categoria">
+								<option value="">Selecione..</option>
+								<option value="mvs">Móveis</options>
+								<option value="trasp">Transporte</option>
+								<option value="inf">Informática</option>
+								<option value="limp">Limpeza</option>
+							</select>
+						</label>
+						<p>
+						Situação:<br> Em Uso<input type="radio" name="situacao" value="U">
+								 | Manutenção<input type="radio" name="situacao" value="M">
+								 | Inutilizado<input type="radio" name="situacao" value="I">
+						<p>
+						Numero da Sala:<br> <input type="number" name="sala" id="S1">
+						<p>
+						valor:<br> R$<input type="number" id="V2" name="valor">
+						<p>
+						<center>
+						<input type="submit" name="btnSubmeter" id="btnSubmeter" value="Enviar"/>
+						<input type="reset" name="btnLimpar" id="btnLimpar" value="Limpar"/>
+						</center>
+						<br>
+					</font>
+				</td>
+			</table>
+			</center>
+                     <div class="vtrodape">
+		<a href="menu1.html">Voltar</>
+		</div>
+		</form>
+	</body>
+</html>
