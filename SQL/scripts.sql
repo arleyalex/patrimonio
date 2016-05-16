@@ -1,7 +1,7 @@
-DROP DATABASE IF EXISTS db_patrimonio;
+DROP DATABASE IF EXISTS cygni;
 
 -- CRIANDO BANCO DE DADOS
-CREATE DATABASE db_patrimonio
+CREATE DATABASE cygni
   WITH OWNER = postgres
        ENCODING = 'UTF8'
        TABLESPACE = pg_default
