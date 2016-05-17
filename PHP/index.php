@@ -1,21 +1,15 @@
 <?php
-session_start();
-if (isset($_SESSION['login'])) {
-    header('Location: menu1.html');
-} else {
+
     $METODO = getenv("REQUEST_METHOD");
-    $BANCO = ("host=localhost port=5432 dbname=db_patrimonio port=5432 user=postgres password=123456");
+    $BANCO = ("host=localhost port=5432 dbname=cygni port=5432 user=postgres password=root");
     $CONEXAO = pg_connect($BANCO);
-    if ($METODO == "GET");
+    if ($METODO == "GET"){
     echo "DADOS INVALIDOS";
-    header('Location: index.html');
-    exit();
-}
-if (!$CONEXAO) {
+    }
+    if (!$CONEXAO) {
     echo 'SEM CONEXÃO COM O BANCO DE DADOS';
-    exit();
-} else {
-    if (isset($_POST['login']) && isset($_POST['senha'])) {
+   }
+    else{
         $login = $_POST['login'];
         $senha = $_POST['senha'];
         $SQL = "SELECT login, nome FROM usuario WHERE login = '" . $login . "' " . " AND senha = '" . md5($senha) . "'";
@@ -29,10 +23,11 @@ if (!$CONEXAO) {
             echo "<p>USUARIO NÃO ACEITO.</p>";
             exit();
         }
-    }
+
 }
     pg_close($CONEXAO);
 ?>
     <html>
     <title> SISTEMA PATRIMONIAL </title>
     </html>
+~
