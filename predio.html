@@ -1,0 +1,38 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <link href="bootstrap/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+        <link href="bootstrap/css/dashboard.css" rel="stylesheet">
+        <link href="bootstrap/css/carousel.css" rel="stylesheet">
+        <title>Sistema Patrimonial - Administrador</title>
+        <link href="bootstrap/css/signin.css" rel="stylesheet">
+		<link href="bootstrap/css/estilomenu.css" rel="stylesheet">
+	</head>
+	<body>
+		<form name="cadpatrimonial" action="bempatrimonial.php" method="post">
+			<b>Número: </b><input type="text" name="numerodobem" id="numerodobem" size="10" />
+			<b>Descrição: </b><input type="text" name="descricao" id="descricao" size="80" />
+			<b>Nº Nota Fiscal: </b><input type="text" name="notafiscal" id="notafiscal" size="10"/>
+			<b>Data emissão: </b><input type="date" name="dataemissao" id="dataemissao"/>
+			<b>Nº Sala: </b><input type="text" name="numerosala" id="numerosala" size="10"/>
+			<b>Fornecedor: </b><input type="text" name="fornecedor" id="fornecedor" size="60"/>
+			<b>Valor: </b><input type="text" name="valor" id="valor" />
+			<b>Situação: </b>
+			<select name="situacao" id="situacao">
+				<option value="U">Em uso</option>
+				<option value="M">Manutenção</option>
+				<option value="I">Inutilizado</option>
+			</select>
+			<b>Categoria: </b><input type="text" name="codcategoria" id="codcategoria" size="10"/>
+			<b>Nº da Sala: </b><input type="text" name="numsala" id="numsala" size="10" />
+		</form>
+		<script src="bootstrap/js/holder.min.js"></script>
+    	<script src="bootstrap/js/ie-emulation-modes-warning.js"></script>
+    	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="bootstrap/js/ie10-viewport-bug-workaround.js"></script>
+	</body>
+</html>
