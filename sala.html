@@ -10,15 +10,53 @@
         	<title>Sistema Patrimonial - Administrador</title>
         	<link href="bootstrap/css/signin.css" rel="stylesheet">
 		<link href="bootstrap/css/estilomenu.css" rel="stylesheet">
-		<h3>Cadastro de Sala</h3>
 	</head>
 	<body>
-		<form name="sala" action="sala.php" method="post">
-			<b>Número: </b><input type="text" name="numero" id="numero" size="10" />
-			<b>Comprimento: </b><input type="text" name="comprimento" id="comprimento" size="10" />
-			<b>Largura: </b><input type="text" name="largura" id="largura" size="10" />
-			<b>Código do Prédio: </b><input type="text" name="codpredio" id="codpredio" size="10"/>
-			<b>Sigla Departamento: </b><input type="text" name="sigladepto" id="sigladepto" size="10"/>
-		</form>
+    	<nav class="navbar navbar-inverse navbar-fixed-top">
+			<div class="container-fluid">
+				<div class="navbar-header">
+          			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            			<span class="sr-only">Toggle navigation</span>
+            			<span class="icon-bar"></span>
+            			<span class="icon-bar"></span>
+            			<span class="icon-bar"></span>
+          			</button>
+          			<a class="navbar-brand" href="#">Sistema Patrimonial - Cadastro Usuário</a>
+        		</div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="php/consulta1.php">Consultar</a></li>
+                        <li><a href="php/cadastrar1.php">Cadastrar</a></li>
+                        <li><a href="php/excluir1.php">Excluir</a></li>
+                        <li><a href="php/sair.php">Sair</a></li>
+                	</ul>
+        		</div>
+      		</div>
+    	</nav>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+         <div class="container">
+            <br>
+            <form class="form-signin" name="sala" action="php/sala.php" method="post">
+            	<h3 class="form-signin-heading">Cadastro de Sala</h3>
+               <input type="text" class="form-control" name="numero" id="numero" size="10" placeholder="Numero" required autofocus><br>
+               <input type="text" class="form-control" name="comprimento" id="comprimento" size="10" placeholder="Comprimento" required autofocus><br>
+               <input type="text" class="form-control" name="largura" id="largura" size="10" placeholder="Largura" required autofocus><br>
+               <input type="text" class="form-control" name="codpredio" id="codpredio" size="10" placeholder="Codigo" required autofocus><br>
+               <input type="text" class="form-control" name="sigladepto" id="sigladepto" size="10" placeholder="Sigla Departamento" required autofocus><br>
+            	<button class="btn btn-lg btn-primary btn-block" type="submit">Cadastrar</button>
+            </form>
+         </div>
+        <script src="bootstrap/js/holder.min.js"></script>
+    	<script src="bootstrap/js/ie-emulation-modes-warning.js"></script>
+    	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="bootstrap/js/ie10-viewport-bug-workaround.js"></script>
 	</body>
 </html>
