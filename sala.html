@@ -1,3 +1,4 @@
+<!doctype html>
 <html>
 	<head>
 		<meta charset="utf-8">
@@ -9,7 +10,8 @@
         	<link href="bootstrap/css/carousel.css" rel="stylesheet">
         	<title>Sistema Patrimonial - Administrador</title>
         	<link href="bootstrap/css/signin.css" rel="stylesheet">
-		<link href="bootstrap/css/estilomenu.css" rel="stylesheet">
+			<link href="bootstrap/css/estilomenu.css" rel="stylesheet">
+            <ling href="bootstrap/css/estilocadastros.css" rel="stylesheet">
 	</head>
 	<body>
     	<nav class="navbar navbar-inverse navbar-fixed-top">
@@ -38,17 +40,66 @@
         <br>
         <br>
          <div class="container">
-            <br>
-            <form class="form-signin" name="sala" action="php/cadastrosala.php" method="post">
-            	<h3 class="form-signin-heading">Cadastro de Sala</h3>
-               <input type="text" class="form-control" name="numero" id="numero" size="10" placeholder="Numero" required autofocus><br>
-               <input type="text" class="form-control" name="comprimento" id="comprimento" size="10" placeholder="Comprimento" required autofocus><br>
-               <input type="text" class="form-control" name="largura" id="largura" size="10" placeholder="Largura" required autofocus><br>
-               <input type="text" class="form-control" name="codpredio" id="codpredio" size="10" placeholder="Codigo" required autofocus><br>
-               <input type="text" class="form-control" name="sigladepto" id="sigladepto" size="10" placeholder="Sigla Departamento" required autofocus><br>
-            	<button class="btn btn-lg btn-primary btn-block" type="submit">Cadastrar</button>
+            <form class="form-horizontal" name="sala" action="php/cadastrosala.php" method="post">
+            	<center>
+                	<h3 class="form-signin-heading">Cadastro de Sala</h3><br>
+                </center>
+                    <div class="form-group">
+                		<label for="inputNumero" class="col-sm-5 control-label">Numero:</label>	
+                        <div class="col-xs-4">
+                        </div>
+                        <div class="col-xs-4">
+                        
+                    		<input type="text" class="form-control" name="numero" id="inputNumero" size="10"  required autofocus><br>
+                    	</div>
+                    </div>
+                
+       	           <div class="form-group">
+               		 	<label for="inputComprimento" class="col-sm-5 control-label">Comprimento:</label>
+               			<div class="col-xs-4">
+                        </div>
+                        <div class="col-xs-4">
+                    		<input type="text" class="form-control" name="comprimento" id="Comprimento" size="10"  required autofocus><br>
+                		</div>
+                	</div>
+                
+                    <div class="form-group">
+                            <label for="inputLargura" class="col-sm-5 control-label">Largura:</label>
+                            <div class="col-xs-4">
+                        	</div>
+                            <div class="col-xs-4">
+                                <input type="text" class="form-control" name="largura" id="inputLargura" size="10"  required autofocus><br>
+                            </div>
+                    </div>
+               
+                   <div class="form-group">
+                        <label for="inputCodigo" class="col-sm-5 control-label">Código:</label>
+                        <div class="col-xs-4">
+                        </div>
+                        <div class="col-xs-4">
+                            <input type="text" class="form-control" name="codpredio" id="inputCodigo" size="10" required autofocus><br>
+                        </div>
+                   </div>
+                
+                    <div class="form-group">
+                        <label for="inputSigla" class="col-sm-5 control-label">Sigla:</label>
+                        <div class="col-xs-4">
+                        </div>
+                        <div class="col-xs-4">
+                            <input type="text" class="form-control" name="sigladepto" id="inputSigla" size="10" required autofocus><br>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-xs-5">
+                        </div>
+                        <div class="col-xs-4">
+                           <button class="btn btn-lg btn-primary btn-block" type="submit">Cadastrar</button>			
+                        </div>
+                    </div>
             </form>
+   
          </div>
+
         <script src="bootstrap/js/holder.min.js"></script>
     	<script src="bootstrap/js/ie-emulation-modes-warning.js"></script>
     	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
