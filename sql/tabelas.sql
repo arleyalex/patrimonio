@@ -33,10 +33,6 @@ INSERT INTO sala (numero, comprimento, largura, codpredio, sigladepto)
 	       ('105','15.2','10.0','2','TI');
 
 
--- Inserção de Dados - Tabela BemPatrimonial
-
-INSERT INTO bempatrimonial (numero, descricao, nrnotafiscal, dtnotafiscal, forncedor, valor, situacao, codcat, numsala)
-	VALUES ('1','MONITOR','100200','16/05/02','CONECTWORK','470.00','U',
 
 
 	       
