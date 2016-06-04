@@ -28,11 +28,11 @@ session_start();
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
           			</button>
-          			<a class="navbar-brand" href="#">Sistema Patrimonial - Consultar Item</a>
+          			<a class="navbar-brand" href="#">Sistema Patrimonial - Consultar Itens Numa Sala</a>
        			 </div>
         		<div id="navbar" class="navbar-collapse collapse">
 					<ul class="nav navbar-nav navbar-right">
-                    <li><a href="../consultabem.html">Nova Consulta</a></li>
+                    <li><a href="../consultasala.html">Nova Consulta</a></li>
                     <li><a href="../consultar.html">Página Inicial</a></li>
                     <li><a href="sair.php">Sair</a></li>
 					</ul>
@@ -54,15 +54,15 @@ session_start();
 		<br>
 		<center>
 		<?php 
-				$CODIGO = $_POST['matricula'];
-				$RESULTADO = pg_query($CONEXAO, "select bempatrimonial.numero, bempatrimonial.descricao, sala.numero, sala.sigladepto, predio.nome  
-									from bempatrimonial, sala, predio
-									where predio.codigo = sala.codpredio and bempatrimonial.numsala = sala.numero and bempatrimonial.numero='$CODIGO';");
+				$CODIGO = $_POST['numsala'];
+				$RESULTADO = pg_query($CONEXAO, "select descricao from bempatrimonial where numsala = '$CODIGO';");
 				echo "<table border='2'>";
-				echo "<tr><th>NUMERO</th><th>DESCRICAO</th><th>SALA</th><th>DEPTO</th><th>PREDIO</th></tr>";
+				echo "<tr><th>NUMERO</th><th>DESCRICAO</th></tr>";
+				$i=0;
 				while ($row=pg_fetch_row($RESULTADO)){
+					$i=$i+1;
 					echo "<tr>";
-					echo "<td>".$row[0]."</td><td>".$row[1]."</td><td>".$row[2]."</td><td>".$row[3]."</td><td>".$row[4]."<\td>";
+					echo "<td>".$i."</td><td>".$row[0]."</td>";
 					echo "</tr>";
 				}
 				pg_close($CONEXAO); 

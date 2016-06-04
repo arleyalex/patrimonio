@@ -4,7 +4,7 @@ if ($METODO == "GET") {
     echo "DADOS INVALIDOS";
 }
 if (!$CONEXAO) {
-    echo 'SEM CONEX√ÉO COM O BANCO DE DADOS';
+    echo 'SEM CONEX√O COM O BANCO DE DADOS';
 } else {
     $login = $_POST['login'];
     $senha = $_POST['senha'];
@@ -16,12 +16,12 @@ if (!$CONEXAO) {
 		case "G":
 			//$_SESSION['usuario'] = $LINHA['login'];
             //$_SESSION['nome_usuario'] = $LINHA['nome'];
-            header('Location: ../consulta2.html');
+            header('Location: ../consultar.html');
 
         case "F":
             //$_SESSION['usuario'] = $LINHA['login'];
             //$_SESSION['nome_usuario'] = $LINHA['nome'];
-            header('Location: ../consulta1.html');
+            header('Location: ../consultar.html');
         }
     }
 pg_close($CONEXAO);

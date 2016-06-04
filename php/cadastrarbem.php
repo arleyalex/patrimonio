@@ -35,11 +35,12 @@
        				 </div>
         		<div id="navbar" class="navbar-collapse collapse">
          		 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="../consulta1.html">Início</a></li>
+                    <li><a href="../consultar.html">Início</a></li>
                     <li><a href="php/sair.php">Sair</a></li>
          		 </ul>
         		</div>
     		  </div>
+			  
    		 </nav>
 	<div class="container">
 		<div class="form-group">
@@ -80,9 +81,9 @@
 				<b>Nº Sala: </b>
 				<select name="numsala" id="numsala" class="form-group">
 				<?php
-						$RESULTADO = pg_query($CONEXAO,"SELECT numero FROM sala;");
+						$RESULTADO = pg_query($CONEXAO,"SELECT sala.numero, predio.nome, predio.endereco FROM sala, predio WHERE sala.codpredio = predio.codigo ORDER BY predio.nome;");
 						while ($row=pg_fetch_row($RESULTADO)){
-							echo "<option value=".$row[0].">".$row[0]."</option>";
+							echo "<option value=".$row[0].">".$row[0]." - ".$row[1]." - ".$row[2]."</option>";
 						}
 				?>			
 				</select>
