@@ -2,7 +2,7 @@
 session_start();
 if (isset($_SESSION['login'])) {
     $METODO = getenv("REQUEST_METHOD");
-    $BANCO = ("host=localhost port=5432 dbname=db_patrimonio port=5432 user=postgres password=123456");
+    $BANCO = ("host=localhost dbname=db_patrimonio port=5432 user=postgres password=123456");
     $CONEXAO = pg_connect($BANCO);
     if (!$CONEXAO OR $METODO == "_GET") {
         echo 'SEM CONEXÃO COM O BANCO DE DADOS ou Metodo de envio invalido';
