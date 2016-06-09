@@ -1,9 +1,8 @@
 <?php
 include "conexao.php";
+session_cache_expire(2);
 session_start();
-
 ?>
-
 <html>
     <head>
         <meta charset="utf-8">
@@ -33,8 +32,8 @@ session_start();
         		<div id="navbar" class="navbar-collapse collapse">
 					<ul class="nav navbar-nav navbar-right">
                     <li><a href="../consultasala.html">Nova Consulta</a></li>
-                    <li><a href="../consultar.html">PÃ¡gina Inicial</a></li>
-                    <li><a href="sair.php">Sair</a></li>
+                    <li><a href="../consultar.html">Página Inicial</a></li>
+                    <li><a href="logout.php">Sair</a></li>
 					</ul>
         		</div>
 				

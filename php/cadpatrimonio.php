@@ -1,5 +1,6 @@
 <?php
 	include "conexao.php";
+        session_cache_expire(2);
 	session_start();
 	
 	$NUMERO = $_POST['numerodobem'];

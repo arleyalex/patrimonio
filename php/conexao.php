@@ -1,7 +1,10 @@
 <?php
+/* FACULDADE DE TECNOLOGIA SENAC GOIÁS INSTRUMENTO DO PROCESSO DE AVALIAÇÃO DE APRENDIZAGEM
+
+                                  PROJETO PATRIMONIO - CYGNI*/
 
     $METODO = getenv("REQUEST_METHOD");
-    $BANCO = ("host=192.168.43.9 port=5432 dbname=cygni port=5432 user=postgres password=root");
+    $BANCO = ("host=$IP port=5432 dbname=$DB user=$USER password=$PW");
     $CONEXAO = pg_connect($BANCO);
-	
-?>
+	?>
+

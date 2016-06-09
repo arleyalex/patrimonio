@@ -1,7 +1,9 @@
 <?php
-	include "conexao.php";
-	session_start();
-?>
+    session_cache_expire(2);	
+    session_start();
+    include "conexao.php";
+    $permitidos = array('cadpatrimonio.php');
+   ?>
 <html>
 	<head>
 	<div class="container">
@@ -36,7 +38,7 @@
         		<div id="navbar" class="navbar-collapse collapse">
          		 <ul class="nav navbar-nav navbar-right">
                     <li><a href="../consultar.html">Início</a></li>
-                    <li><a href="php/sair.php">Sair</a></li>
+                    <li><a href="php/logout.php">Sair</a></li>
          		 </ul>
         		</div>
     		  </div>
@@ -70,10 +72,12 @@
 				<b>Categoria: </b>
 				<select name="categoria" id="categoria" class="form-group">
 				<?php
+                                if (isset($_POST['cadastrarbem.php']) AND (array_search($_POST['cadpatrimonio.php'], $permitidos) !== false)) {
 						$RESULTADO = pg_query($CONEXAO,"SELECT codigo,nome FROM categoria;");
 						while ($row=pg_fetch_row($RESULTADO)){
 							echo "<option value=".$row[0].">".$row[0]." - ".$row[1]."</option>";
 						}
+                                }
 				?>			
 				</select>
 				<p>
